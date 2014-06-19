@@ -1,5 +1,3 @@
-To make the most of R and C++, we need a few tools. 
-
 # R 
 
 The first tool we need is a recent version of R. At the time of 
@@ -96,3 +94,4 @@ test()
 ```
 ## [1] 1 2 3
 ```
+
