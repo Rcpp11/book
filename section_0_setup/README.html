@@ -32,7 +32,7 @@
 
 
         
-    <div class="book" data-github="Rcpp11/book" data-level="1" data-basepath=".." data-revision="1403189780255">
+    <div class="book" data-github="Rcpp11/book" data-level="1" data-basepath=".." data-revision="1403190557297">
     <div class="book-header">
     <!-- Actions Left -->
     <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
@@ -221,7 +221,33 @@ CRAN. </p>
 <p>Or a development version from github: </p>
 <pre><code class="lang-r">devtools::install_github(<span class="hljs-string">"Rcpp11/Rcpp11"</span>)
 </code></pre>
+<p>The package consists of only header files, it contains no R code and 
+no <code>.cpp</code> files in the <code>src/</code> directory. It does not even have a <code>src/</code> 
+directory. Installation should be trivial. </p>
+<h1 id="attributes">attributes</h1>
+<p>Next, you need the <a href="https://github.com/Rcpp11/attributes" target="_blank">attributes</a>
+package. This package is not yet on CRAN, so you need a development
+version, but it is pretty stable and routinely used for our unit tests. </p>
+<pre><code class="lang-r">devtools::install_github(<span class="hljs-string">"Rcpp11/attributes"</span>)
+</code></pre>
+<h1 id="let-s-try">Let&#39;s try</h1>
+<p>Once all this is installed, we can try to compile our first <code>.cpp</code> file
+with <code>atributes::sourceCpp</code>. Let&#39;s put the following code in the <code>test.cpp</code>
+file: </p>
+<pre><code class="lang-cpp"><span class="hljs-preprocessor">#include &lt;Rcpp11&gt;</span>
 
+<span class="hljs-comment">// [[export]]</span>
+IntegerVector test(){
+    <span class="hljs-keyword">return</span> {<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>} ;
+}
+</code></pre>
+<p>If everything is installed properly, we should be able to compile
+the <code>test.cpp</code> file with <code>sourceCpp</code> and use the <code>test</code> function: </p>
+<pre><code class="lang-r">attributes::sourceCpp( <span class="hljs-string">"test.cpp"</span> )
+test()
+</code></pre>
+<pre><code>## [1] 1 2 3
+</code></pre>
                     
                     </section>
                 
