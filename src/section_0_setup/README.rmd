@@ -37,3 +37,19 @@ fully supports C++11.
 On Linux, it all depends on your distribution. I'd recommend to get the 
 latest available version of gcc (at least 4.8.0). 
 
+# Rcpp11
+
+Next, you need to install `Rcpp11`. You can either get a stable version from
+CRAN. 
+
+```{r,eval=FALSE}
+install.packages( "Rcpp11" )
+```
+
+Or a development version from github: 
+
+```{r,eval=FALSE}
+devtools::install_github("Rcpp11/Rcpp11")
+```
+
+
