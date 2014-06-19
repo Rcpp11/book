@@ -10,3 +10,7 @@ with ancient C++. There are many other resources online for this.
 It is possible that some of the code presented in this book also works when 
 compiled against [Rcpp](https://github.com/RcppCore/Rcpp) as both 
 implementation share some history, but it is definitely not a goal. 
+
+
+
+
