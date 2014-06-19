@@ -54,4 +54,45 @@ Or a development version from github:
 devtools::install_github("Rcpp11/Rcpp11")
 ```
 
+The package consists of only header files, it contains no R code and 
+no `.cpp` files in the `src/` directory. It does not even have a `src/` 
+directory. Installation should be trivial. 
 
+# attributes
+
+Next, you need the [attributes](https://github.com/Rcpp11/attributes)
+package. This package is not yet on CRAN, so you need a development
+version, but it is pretty stable and routinely used for our unit tests. 
+
+
+```r
+devtools::install_github("Rcpp11/attributes")
+```
+
+# Let's try
+
+Once all this is installed, we can try to compile our first `.cpp` file
+with `atributes::sourceCpp`. Let's put the following code in the `test.cpp`
+file: 
+
+```cpp
+#include <Rcpp11>
+
+// [[export]]
+IntegerVector test(){
+    return {1,2,3} ;
+}
+```
+
+If everything is installed properly, we should be able to compile
+the `test.cpp` file with `sourceCpp` and use the `test` function: 
+
+
+```r
+attributes::sourceCpp( "test.cpp" )
+test()
+```
+
+```
+## [1] 1 2 3
+```
